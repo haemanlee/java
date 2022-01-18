@@ -5,6 +5,8 @@ For example, if we start by attaching wagon 7 from the left followed by attachin
 again from the left, we get a composition of two wagons (13 and 7 from left to right).
 Now the first wagon that can be detached from the right is 7 and the first that can be detached from the left is 13.
 Implement a TrainComposition that models this problem.
+
+solution : using deque called double-ended queue
  */
 
 package hello.proxy.hyper.coding_study.testdorm;
