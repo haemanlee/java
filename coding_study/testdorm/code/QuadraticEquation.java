@@ -1,4 +1,4 @@
-package hello.proxy.hyper.coding_study.testdorm;
+package hello.proxy.hyper.coding_study.testdorm.code;
 
 public class QuadraticEquation {
     public static Roots findRoots(double a, double b, double c) {
