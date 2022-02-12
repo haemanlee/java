@@ -9,7 +9,8 @@ Implement a TrainComposition that models this problem.
 solution : using deque called double-ended queue
  */
 
-package hello.proxy.hyper.coding_study.testdorm;
+package testdorm.algorithm;
+
 
 import java.util.Deque;
 import java.util.LinkedList;

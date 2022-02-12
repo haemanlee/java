@@ -2,15 +2,16 @@ package hello.proxy.hyper.coding_study.testdorm.code;
 
 import java.util.HashMap;
 import java.util.Map;
-public class TwoSum {
+
+public class TwoSum2 {
     public static int[] findTwoSum(int[] list, int sum) {
         if(list == null || list.length < 2) return null;
-        Map<Integer,Integer> twoSumMap = new HashMap<>();
+        Map<Integer,Integer> map = new HashMap<Integer,Integer>();
         for(int i=0; i<list.length;i++){
-            if(twoSumMap.containsKey(list[i])){
-                return new int[]{i, twoSumMap.get(list[i])};
+            if(map.containsKey(list[i])){
+                return new int[] {i, map.get(list[i])};
             }
-            twoSumMap.put(sum-list[i], i);
+            map.put(sum- list[i], i);
         }
 
         return null;

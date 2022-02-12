@@ -1,4 +1,5 @@
-package hello.proxy.hyper.coding_study.testdorm.code;
+package testdorm.code;
+
 
 public class UserInput {
 

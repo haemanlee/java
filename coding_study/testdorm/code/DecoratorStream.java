@@ -1,65 +1,72 @@
-package hello.proxy.hyper.coding_study.testdorm.code;
+package testdorm.code;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+class RainStorm {
+    protected double eyeRadius;
+    protected double eyePositionX;
+    protected double eyePositionY;
 
-public class DecoratorStream extends OutputStream
-{
-    private OutputStream stream;
-    private String prefix;
-
-    public DecoratorStream(OutputStream stream, String prefix) {
-        super();
-        this.stream = stream;
-        this.prefix = prefix;
+    public RainStorm(double eyeRadius, double eyePositionX, double eyePositionY) {
+        this.eyeRadius = eyeRadius;
+        this.eyePositionX = eyePositionX;
+        this.eyePositionY = eyePositionY;
     }
 
-    @Override
-    public void write(int b) throws IOException {
-        byte[] result = new byte[4];
-
-        result[0] = (byte) (b >> 24);
-        result[1] = (byte) (b >> 16);
-        result[2] = (byte) (b >> 8);
-        result[3] = (byte) (b);
-
-        write(result, 0, 4);
-    }
-    private static boolean prefixused;
-
-    @Override
-    public void write(byte[] b, int off, int len) throws IOException {
-        if(prefixused){
-            stream.write(b, 0, b.length);
-        } else {
-            for(char c : prefix.toCharArray()){
-                stream.write((int)c);
-            }
-            stream.write(b, 0, b.length);
-            prefixused = true;
-        }
-
+    public boolean isInEyeOfTheStorm(double positionX, double positionY) {
+        double distance = Math.sqrt(Math.pow(positionX - eyePositionX, 2) +
+                Math.pow(positionY - eyePositionY, 2));
+        return distance < eyeRadius;
     }
 
-    @Override
-    public void write(byte[] b) throws IOException {
-        write(b, 0, b.length);
+    public double amountOfRain() {
+        return eyeRadius * 20;
     }
 
-    public static void main(String[] args) throws IOException {
-        byte[] message = new byte[]{0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x2c, 0x20, 0x77, 0x6f, 0x72, 0x6c, 0x64, 0x21};
-        try(ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-            DecoratorStream decoratorStream = new DecoratorStream(baos, "First line: ");
-            decoratorStream.write(message);
+    public double getEyeRadius() {
+        return eyeRadius;
+    }
 
-            //다시 utf-8로 바꿔서 실행
-            try(BufferedReader reader = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(baos.toByteArray()), "UTF-8"))) {
-                System.out.println(reader.readLine());  //should print "First line: Hello, world!"
-            }
-        }
+    public double getEyePositionX() {
+        return eyePositionX;
+    }
+
+    public double getEyePositionY() {
+        return eyePositionY;
+    }
+}
+
+class SnowStorm {
+
+    protected double eyeRadius;
+    protected double eyePositionX;
+    protected double eyePositionY;
+    private double amountOfSnow;
+
+    public SnowStorm(double eyeRadius, double eyePositionX, double eyePositionY, double amountOfSnow) {
+        this.eyeRadius = eyeRadius;
+        this.eyePositionX = eyePositionX;
+        this.eyePositionY = eyePositionY;
+        this.amountOfSnow = amountOfSnow;
+    }
+
+    public double getAmountOfSnow() {
+        return amountOfSnow;
+    }
+
+    public boolean isInEyeOfTheStorm(double positionX, double positionY) {
+        double distance = Math.sqrt(Math.pow(positionX - eyePositionX, 2) +
+                Math.pow(positionY - eyePositionY, 2));
+        return distance < eyeRadius;
+    }
+
+    public double getEyeRadius() {
+        return eyeRadius;
+    }
+
+    public double getEyePositionX() {
+        return eyePositionX;
+    }
+
+    public double getEyePositionY() {
+        return eyePositionY;
     }
 }

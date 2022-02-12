@@ -7,7 +7,8 @@ Now the first wagon that can be detached from the right is 7 and the first that 
 Implement a TrainComposition that models this problem.
  */
 
-package hello.proxy.hyper.coding_study.testdorm;
+package testdorm.algorithm;
+
 
 public class TrainComposition1 {
     Wagon head;

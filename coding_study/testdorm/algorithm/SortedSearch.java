@@ -4,7 +4,8 @@ Implement function countNumbers that accepts a sorted array of unique integers a
 For example, SortedSearch.countNumbers(new int[] { 1, 3, 5, 7 }, 4) should return 2 because there are two array elements less than 4
 */
 
-package hello.proxy.hyper.coding_study.testdorm;
+package testdorm.algorithm;
+
 import java.util.Arrays;
 public class SortedSearch {
     public static int countNumbers(int[] sortedArray, int lessThan) {

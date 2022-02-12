@@ -1,4 +1,4 @@
-package hello.proxy.hyper.coding_study.baekjun;
+package baekjun;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

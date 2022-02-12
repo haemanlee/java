@@ -18,7 +18,7 @@ This would appear to be equivalent to checking for cycles in a linked-list, so w
 
 
 
-package hello.proxy.hyper.coding_study.testdorm;
+package testdorm.algorithm;
 
 public class Song {
     private String name;

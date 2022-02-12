@@ -12,7 +12,7 @@
 //출력
 //첫째 줄에 가능한 차량 번호판의 개수를 출력한다.
 
-package hello.proxy.hyper.coding_study.baekjun;
+package baekjun;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

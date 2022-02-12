@@ -1,6 +1,7 @@
-package hello.proxy.hyper.coding_study.testdorm.code;
+package testdorm.code;
 
-public class Storm {
+
+class Storm {
     protected double eyeRadius;
     protected double eyePositionX;
     protected double eyePositionY;
@@ -30,11 +31,7 @@ public class Storm {
     }
 }
 
-class RainStorm extends Storm{
-    protected double eyeRadius;
-    protected double eyePositionX;
-    protected double eyePositionY;
-
+public class RainStorm extends Storm{
     public RainStorm(double eyeRadius, double eyePositionX, double eyePositionY) {
         super(eyeRadius, eyePositionX, eyePositionY);
     }
@@ -63,19 +60,22 @@ class RainStorm extends Storm{
     public double getEyePositionY() {
         return eyePositionY;
     }
+
+
+    public static void main(String[] args) {
+        RainStorm rainStorm = new RainStorm(1,1,1);
+        System.out.println(rainStorm.eyeRadius);
+        System.out.println(rainStorm.eyePositionX);
+
+    }
 }
 
 class SnowStorm extends Storm{
-
-    protected double eyeRadius;
-    protected double eyePositionX;
-    protected double eyePositionY;
     private double amountOfSnow;
 
-
     public SnowStorm(double eyeRadius, double eyePositionX, double eyePositionY, double amountOfSnow) {
-            super(eyeRadius, eyePositionX, eyePositionY);
-            this.amountOfSnow = amountOfSnow;
+        super(eyeRadius, eyePositionX, eyePositionY);
+        this.amountOfSnow = amountOfSnow;
     }
 
 
