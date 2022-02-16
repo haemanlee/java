@@ -10,7 +10,7 @@
 //Call to contains(n2, 3) should return true since a tree with root at n2 contains number 3
 
 
-package algorithm;
+package testdorm.algorithm;
 
 class Node {
     public int value;

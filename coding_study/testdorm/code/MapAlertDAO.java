@@ -1,4 +1,5 @@
-package hello.proxy.hyper.coding_study.testdorm.code;
+package testdorm.code;
+
 
 import java.util.Date;
 import java.util.HashMap;

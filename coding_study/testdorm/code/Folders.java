@@ -12,7 +12,7 @@ For example, for the letter 'u' and an XML file:
 </folder>
 the function should return a collection with items "uninstall information" and "users" (in any order).
  */
-package hello.proxy.hyper.coding_study.testdorm.code;
+package testdorm.code;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
