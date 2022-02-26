@@ -1,20 +1,27 @@
 package whiteship.list;
 
-public class LinkedList3 {
+import java.util.HashSet;
+import java.util.Set;
+
+public class LinkedList4 {
     LinkedNode head = null;
     LinkedNode tail = null;
 
+    /**
+     * 정렬이 안되어 있는 상태에서 중복을 제거하라
+     * @param args
+     */
     public static void main(String[] args) {
-        LinkedList3 linkedList3 = new LinkedList3();
+        LinkedList4 linkedList3 = new LinkedList4();
         linkedList3.add(new LinkedNode(1));
-        linkedList3.add(new LinkedNode(1));
+        linkedList3.add(new LinkedNode(2));
         linkedList3.add(new LinkedNode(1));
         linkedList3.add(new LinkedNode(2));
         linkedList3.add(new LinkedNode(3));
         linkedList3.add(new LinkedNode(3));
         linkedList3.print();
         //        linkedList3.removeDuplicate();
-        linkedList3.removeDuplicate2();
+        linkedList3.removeDuplicate();
         System.out.println("===========");
 
         linkedList3.print();
@@ -24,37 +31,21 @@ public class LinkedList3 {
     예) 1 -> 1 -> 1 -> 2 -> 3 -> 3 => 1 -> 2 -> 3
      */
     private void removeDuplicate(){
+        Set<Integer> numSet = new HashSet<>();
         LinkedNode curr = this.head;
-        while (curr != null){
-            // temp는 중복되는 구간까지 while loop를 돈다.
-            LinkedNode temp = curr;
-            while (temp != null && temp.number == curr.number){
-                temp = temp.next;
+        LinkedNode prev = null;
+        while(curr != null){
+            if(numSet.contains(curr.number)){
+                prev.next = curr.next;
+            }else{
+                //보통인 경우
+                numSet.add(curr.number);
+                prev = curr;
             }
-            curr.next = temp;
             curr = curr.next;
         }
     }
 
-    private void removeDuplicate2(){
-        removeDuplicateRecursive(this.head);
-    }
-
-    private LinkedNode removeDuplicateRecursive(LinkedNode node){
-        if(node == null){
-            return null;
-        }
-
-        if(node.next != null){
-            if(node.number == node.next.number){
-                node.next = node.next.next;
-                removeDuplicateRecursive(node);
-            }else{
-                removeDuplicateRecursive(node.next);
-            }
-        }
-        return node;
-    }
 
     private void add(LinkedNode node){
         if(this.head == null){
